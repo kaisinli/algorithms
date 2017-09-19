@@ -18,5 +18,5 @@
 - O(n!): factorial
 
 ## Cheat Sheet
-[plain English](https://stackoverflow.com/questions/487258/what-is-a-plain-english-explanation-of-big-o-notation)
-[Cheat sheet](http://bigocheatsheet.com/)
+- [plain English](https://stackoverflow.com/questions/487258/what-is-a-plain-english-explanation-of-big-o-notation)
+- [Cheat sheet](http://bigocheatsheet.com/)
