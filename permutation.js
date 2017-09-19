@@ -19,9 +19,9 @@ function stringPermutations(str) {
 
     while (i < str.length) {
         const letter = str[i];
-        const otherChars = str.slice(0, i) + str.slice(i + 1);
+        const allOtherChars = str.slice(0, i) + str.slice(i + 1);
 
-        stringPermutations(otherChars).forEach(submpermut => {
+        stringPermutations(allOtherChars).forEach(submpermut => {
             all.push(letter + submpermut);
         });
 
