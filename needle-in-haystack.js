@@ -1,3 +1,4 @@
+// -------------------< solution one >----------------------//
 /*============================================================
 O(n), n being the length of haystack, because of for loop.   
 
@@ -30,4 +31,24 @@ function strStr(haystack, needle) {
       return -1;
     }
   }
+}
+
+// -------------------< solution two >----------------------//
+/*============================================================
+Does not work for the following
+
+CASES:
+
+haystack            needle          expected output
+''                  ''              0
+============================================================*/
+
+function indexOf (needle, haystack) {
+  for (var hIdx = 0; hIdx <= haystack.length - needle.length; hIdx++) {
+    for (var nIdx = 0; nIdx < needle.length; nIdx++) {
+      if (haystack[hIdx + nIdx] !== needle[nIdx]) break;
+      if (nIdx + 1 === needle.length) return hIdx;
+    }
+  }
+  return -1;
 }
