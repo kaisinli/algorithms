@@ -1,7 +1,5 @@
 // -------------------< solution one >----------------------//
 /*============================================================
-O(n), n being the length of haystack, because of for loop.   
-
 CASES:
 
 haystack            needle          expected output
@@ -35,6 +33,7 @@ function strStr(haystack, needle) {
 
 // -------------------< solution two >----------------------//
 /*============================================================
+O(n*m)
 Does not work for the following
 
 CASES:
@@ -52,3 +51,14 @@ function indexOf (needle, haystack) {
   }
   return -1;
 }
+
+
+// -----------------< solution three >---------------------//
+
+/*============================================================
+Look into 
+
+https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm#The_Galil_Rule
+
+for O(m+n) time, m is length of haystack and n is length of needle
+============================================================*/
