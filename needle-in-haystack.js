@@ -1,7 +1,7 @@
 /*============================================================
 O(n), n being the length of haystack, because of for loop.   
 
-SPECIAL CASES:
+CASES:
 
 haystack            needle          expected output
 ''                  ''              0
@@ -9,28 +9,25 @@ haystack            needle          expected output
 '11'                ''              0
 ============================================================*/
 
-debugger;
+function strStr(haystack, needle) {
+  var needleLength = needle.length;
+  var haystackLength = haystack.length;
+  var diff = haystackLength - needleLength;
 
-function strStr (haystack, needle) {
-  var needleLength = needle.length;           
-  var haystackLength = haystack.length;       
-  var diff = haystackLength - needleLength;   
-
-  function cutHay (str, a, b) {
-    return str.slice(a, a+b)
+  function cutHay(str, a, b) {
+    return str.slice(a, a + b)
   }
-  
-  switch (diff) {
-    case haystackLength:
-      return 0;
-    case -needleLength:
+
+  if (diff < 0) return -1;
+  else if (needleLength === 0) return 0;
+
+  var check = cutHay(haystack, i, needleLength) === needle;
+
+  for (var i = 0; i <= diff; i++) {
+    if (haystack[i] === needle[0] && check === true) {
+      return i;
+    } else if (i === diff) {
       return -1;
-    default:
-      for (var i = 0; i<= diff; i++) {
-        if (haystack[i] === needle[0]) {
-          if (cutHay(haystack, i, needleLength) === needle) return i;
-          else if (i === diff) return -1;
-        }
-      };
+    }
   }
 }
