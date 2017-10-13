@@ -2,7 +2,6 @@
 
 // First, let's create a BST, which is a constructor function:
 
-
 function bst(val) {
     this.value = val;
     this.left = null;
@@ -13,11 +12,11 @@ function bst(val) {
 // Now we have our parent node, or root, let's find a way to add nodes to the tree. Remember each child node is the parent of a new BST.
 
 bst.prototype.insert = function (val) {
-    if (value <= this.value) {
+    if (val <= this.value) {
         if (!this.left) this.left = new bst(val);
         else this.left.insert(val);
     }
-    else if (value > this.value) {
+    else if (val > this.value) {
         if (!this.right) this.right = new bst(val);
         else this.right.insert(val);
     }
@@ -33,12 +32,12 @@ bst.prototype.insert = function (val) {
 // Next, we check to see if the BTS contains a certain value.
 
 bst.prototype.contains = function (val) {
-    if (this.value === value) return true;
-    if (value < this.value) {
+    if (this.value === val) return true;
+    if (val < this.value) {
         if (!this.left) return false;
         else return this.left.contains(val)
     }
-    else if (value > this.value) {
+    else if (val > this.value) {
         if (!this.right) return false;
         else return this.right.contains(val)
     }
