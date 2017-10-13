@@ -25,7 +25,10 @@ bst.prototype.insert = function (val) {
 
 // insertion in BST run-time is O(log n).
 
-// Here we created the insert function, which takes a value (the child), and compare it to the parent. If it's less than or equal to the parent, it should go to the parent's left branch. So we need to check if there is already a node there. If there is, access that node and call insert (recursion!) on that node. If not (hitting base case), add the new value and make a new BST. Same process for if the value is greater than the parent.
+// Here we created the insert function, which takes a value (the child), and compare it to the parent. 
+// If it's less than or equal to the parent, it should go to the parent's left branch. 
+// So we need to check if there is already a node there. If there is, access that node and call insert (recursion!) on that node. 
+// If not (hitting base case), add the new value and make a new BST. Same process for if the value is greater than the parent.
 
 // Next, we check to see if the BTS contains a certain value.
 
@@ -43,8 +46,39 @@ bst.prototype.contains = function (val) {
 
 // contains in BST run-time is also O(log n).
 
-//Now let's traverse the entire tree, aka, visit every node. Two ways, depth-first and breadth-first. Depth-first travels one branch all the way to the bottom before moving on to the next, it starts on the left branch. 
+// Now let's traverse the entire tree, aka, visit every node. 
+// Two ways, depth-first and breadth-first. 
+// Depth-first travels one branch all the way to the bottom before moving on to the next, it starts on the left branch. 
+
+/**
+ * Depth-first search method:
+ * 
+ * pre-order:   hits the current node data before traversing both left and right subtrees
+ * in-order:    hits the current node data after traversing the left subtree but before the right subtree
+ * post-order:  hits the current node data after traversing both left and right subtrees
+ * 
+ * We need to pass in an iteratorFunc that can take action on each node as we traverse the tree.
+ */
 
 bst.prototype.depthFirstTraversal = function (iteratorFunc, order) {
-    
+    if (this.order === 'preOrder') iteratorFunc(this.value);
+    if (this.left) this.left.depthFirstTraversal(iteratorFunc,order);
+    if (this.order === 'inOrder') iteratorFunc(this.value);
+    if (this.right) this.right.depthFirstTraversal(iteratorFunc,order);
+    if (this.order === 'postOrder') iteratorFunc(this.value);
+}
+
+/**
+ * Breadth-first search method:
+ * 
+ * Traverse each level of the tree systematically before moving on to the next level of the tree. This is a queue, since the parents are visited before its children
+ */
+
+bst.prototype.breadthFirstTraversal = function (iteratorFunc) {
+    let queue = [this];
+    while (queue.length) {
+        let treeNode = queue.shift()
+        iteratorFunc(treeNode);
+        if(treeNode.left) queue.push()
+    }
 }
