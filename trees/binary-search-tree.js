@@ -87,6 +87,19 @@ bst.prototype.breadthFirstTraversal = function (iteratorFunc) {
     }
 }
 
+// find max/min
+
+bst.prototype.getMinOrMax = function (option) {
+    if (option === 'min') {
+        if(!this.left) return this.value;
+        else return this.left.getMinOrMax(option);
+    } 
+    else if (option === 'max') {
+        if(!this.right) return this.value;
+        else return this.right.getMinOrMax(option);
+    }
+}
+
 // let's test our BST!
 
 let newTree = new bst(4)
