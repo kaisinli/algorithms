@@ -57,8 +57,12 @@ bst.prototype.contains = function (val) {
  * in-order:    hits the current node data after traversing the left subtree but before the right subtree
  * post-order:  hits the current node data after traversing both left and right subtrees
  * 
- * We need to pass in an iteratorFunc that can take action on each node as we traverse the tree.
+ * We need to pass in an iteratorFunc that can take action on each node as we traverse the tree. It can just log for now.
  */
+
+const log = (val) => {
+    console.log(val)
+}
 
 bst.prototype.depthFirstTraversal = function (iteratorFunc, order) {
     if (this.order === 'preOrder') iteratorFunc(this.value);
@@ -77,8 +81,9 @@ bst.prototype.depthFirstTraversal = function (iteratorFunc, order) {
 bst.prototype.breadthFirstTraversal = function (iteratorFunc) {
     let queue = [this];
     while (queue.length) {
-        let treeNode = queue.shift()
-        iteratorFunc(treeNode);
-        if(treeNode.left) queue.push()
+        let parentNode = queue.shift();
+        iteratorFunc(parentNode);
+        if(parentNode.left) queue.push(parentNode.left);
+        if(parentNode.right) queue.push(parentNode.right);
     }
 }
