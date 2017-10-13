@@ -1,7 +1,0 @@
-/*Propmp:
-
-Traverse binary tree
-
-*/
-
-
