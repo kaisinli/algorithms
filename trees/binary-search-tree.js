@@ -2,7 +2,7 @@
 
 // First, let's create a BST, which is a constructor function:
 
-function bst(val) {
+function BST(val) {
     this.value = val;
     this.left = null;
     this.right = null;
@@ -11,13 +11,13 @@ function bst(val) {
 
 // Now we have our parent node, or root, let's find a way to add nodes to the tree. Remember each child node is the parent of a new BST.
 
-bst.prototype.insert = function (val) {
+BST.prototype.insert = function (val) {
     if (val <= this.value) {
-        if (!this.left) this.left = new bst(val);
+        if (!this.left) this.left = new BST(val);
         else this.left.insert(val);
     }
     else if (val > this.value) {
-        if (!this.right) this.right = new bst(val);
+        if (!this.right) this.right = new BST(val);
         else this.right.insert(val);
     }
 }
@@ -31,7 +31,7 @@ bst.prototype.insert = function (val) {
 
 // Next, we check to see if the BTS contains a certain value.
 
-bst.prototype.contains = function (val) {
+BST.prototype.contains = function (val) {
     if (this.value === val) return true;
     if (val < this.value) {
         if (!this.left) return false;
@@ -63,7 +63,7 @@ const log = (val) => {
     console.log(val)
 }
 
-bst.prototype.depthFirstTraversal = function (iteratorFunc, order) {
+BST.prototype.depthFirstTraversal = function (iteratorFunc, order) {
     if (order === 'preOrder') iteratorFunc(this.value);
     if (this.left) this.left.depthFirstTraversal(iteratorFunc,order);
     if (order === 'inOrder') iteratorFunc(this.value);
@@ -77,7 +77,7 @@ bst.prototype.depthFirstTraversal = function (iteratorFunc, order) {
  * Traverse each level of the tree systematically before moving on to the next level of the tree. This is a queue, since the parents are visited before its children
  */
 
-bst.prototype.breadthFirstTraversal = function (iteratorFunc) {
+BST.prototype.breadthFirstTraversal = function (iteratorFunc) {
     let queue = [this];
     while (queue.length) {
         let parentNode = queue.shift();
@@ -89,7 +89,7 @@ bst.prototype.breadthFirstTraversal = function (iteratorFunc) {
 
 // find max/min
 
-bst.prototype.getMinOrMax = function (option) {
+BST.prototype.getMinOrMax = function (option) {
     if (option === 'min') {
         if(!this.left) return this.value;
         else return this.left.getMinOrMax(option);
@@ -102,7 +102,7 @@ bst.prototype.getMinOrMax = function (option) {
 
 // let's test our BST!
 
-let newTree = new bst(4)
+let newTree = new BST(4)
 
 newTree.insert(3)
 newTree.insert(5)
