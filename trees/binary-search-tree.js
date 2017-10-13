@@ -64,11 +64,11 @@ const log = (val) => {
 }
 
 bst.prototype.depthFirstTraversal = function (iteratorFunc, order) {
-    if (this.order === 'preOrder') iteratorFunc(this.value);
+    if (order === 'preOrder') iteratorFunc(this.value);
     if (this.left) this.left.depthFirstTraversal(iteratorFunc,order);
-    if (this.order === 'inOrder') iteratorFunc(this.value);
+    if (order === 'inOrder') iteratorFunc(this.value);
     if (this.right) this.right.depthFirstTraversal(iteratorFunc,order);
-    if (this.order === 'postOrder') iteratorFunc(this.value);
+    if (order === 'postOrder') iteratorFunc(this.value);
 }
 
 /**
@@ -86,3 +86,14 @@ bst.prototype.breadthFirstTraversal = function (iteratorFunc) {
         if(parentNode.right) queue.push(parentNode.right);
     }
 }
+
+// let's test our BST!
+
+let newTree = new bst(4)
+
+newTree.insert(3)
+newTree.insert(5)
+newTree.insert(2)
+newTree.insert(8)
+newTree.insert(1)
+newTree.insert(7)
