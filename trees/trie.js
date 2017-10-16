@@ -89,3 +89,26 @@ function findAllWords(node) {
     }
 }
 
+// find words with a given prefix
+// O(p + n), p = prefix length, n = number of child paths
+Trie.prototype.find = function(prefix) {
+  var node = this.root;
+  var output = [];
+  
+  // for every character in the prefix
+  for(var i = 0; i < prefix.length; i++) {
+    // make sure prefix actually has words
+    if (node.children[prefix[i]]) {
+      node = node.children[prefix[i]];
+    } else {
+      // there's none. just return it.
+      return output;
+    }
+  }
+  
+  // recursively find all words in the node
+  findAllWords(node, output);
+  
+  return output;
+};
+
