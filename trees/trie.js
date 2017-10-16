@@ -75,9 +75,8 @@ TrieNode.prototype.getWord = function () {
     return output.join('');
 };
 
-function findAllWords(node) {
+function findAllWords(node, arr) {
     // a place all the words
-    let arr = [];
     // base case, if node is at a word, push to output
     if (node.end) {
         arr.unshift(node.getWord());
@@ -85,7 +84,7 @@ function findAllWords(node) {
 
     // iterate through each children, call recursive findAllWords
     for (let child in node.children) {
-        findAllWords(node.children[child]);
+        findAllWords(node.children[child], arr);
     }
 }
 
