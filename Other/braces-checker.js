@@ -1,5 +1,4 @@
 const bracesChecker = (arr) => {
-
     const opens = {
         '{': '}',
         '[': ']',
@@ -35,13 +34,8 @@ const bracesChecker = (arr) => {
     })
 }
 
-var arr = [')(){}', '[]({})', '([])', '{()[]}', '([)]']
-
-bracesChecker(arr)
-
-
-
-// To check an individual string and returns true/false
+// #####################################
+// Solution that returns true/false
 
 const opens = {
     '{': '}',
@@ -74,3 +68,22 @@ const isValid = (str) => {
         }
     }
 };
+
+
+// #####################################
+// A similar problem: returning the number of unmatched parentesis
+
+function bracketMatch(text) {
+  var stack = [text[0]];
+  
+  for (var i = 1; i < text.length; i++) {
+    if (text[i] === ')' ) {
+      if(stack[stack.length-1] === '(') stack.pop();
+      else stack.push(text[i])
+    }
+    
+    else if (text[i] === '(' ) stack.push(text[i])
+  }
+  
+  return stack.length;
+}
