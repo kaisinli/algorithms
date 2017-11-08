@@ -18,13 +18,8 @@ var hash = (string, max) => {
 };
 
 let HashTable = function() {
-
   let storage = [];
   const storageLimit = 14;
-  
-  this.print = function() {
-    console.log(storage)
-  }
 
   this.add = function(key, value) {
     var index = hash(key, storageLimit);
