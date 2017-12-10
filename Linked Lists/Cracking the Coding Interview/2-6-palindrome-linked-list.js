@@ -5,7 +5,7 @@ var isPalindrome = function(head) {
     // find midpoint of the LL
     var midpoint = findMiddle(head);
     // reverse the second half the of LL
-    var reversed = reverseNode(midpoint); 
+    var reversed = reverseList(midpoint); 
 
     // check to see if the first half is the same as the reversed second half
     while(reversed != null){
