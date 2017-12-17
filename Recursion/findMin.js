@@ -9,12 +9,3 @@ function findMin (arr, arrSize){
     return findMin(arr, arrSize);
 }
 
-// immutable 
-function findMin (arr, arrSize){
-    let newArr = arr;
-    if(arrSize === 0) return newArr[0];
-    arrSize--;
-    newArr[0] >= newArr[1] ? newArr.splice(0, 1) : newArr.splice(1, 1);
-    
-    return findMin(newArr, arrSize);
-}
