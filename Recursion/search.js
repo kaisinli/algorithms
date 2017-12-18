@@ -1,4 +1,8 @@
-// binary search to find a target in an array
+/**
+ * binary search to find a target in an array,
+ * assume arr is sorted from smallest to biggest
+ */
+
 
 const binSearch = (arr, arrSize, target) => {
     // base case
