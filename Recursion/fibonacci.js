@@ -1,10 +1,11 @@
 // F(n) = F(n-1) + F(n-2)
 
+// the following accepts a num and returns its position in the sequence
 function fibonacci(num){
   var a = 1, b = 0, temp;
  
 //   current is a, the next current is a + whatever comes before a, let's call it b.
-//   b is the old a 
+//   new b is the old a 
   
   while (num >= 0){
     temp = a;
