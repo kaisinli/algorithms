@@ -3,24 +3,39 @@
  * assume arr is sorted from smallest to biggest
  */
 
-
+// returns true or false
 const binSearch = (arr, arrSize, target) => {
-    // base case
-    if (arrSize <= 1) return arr[0] === target ? true : false;
-    
-    let midpoint = Math.floor(arrSize/2);
+  // base case
+  if (arrSize <= 1) return arr[0] === target ? true : false;
 
-    if (arr[midpoint] === target) {
-      return true;
+  let midpoint = Math.floor(arrSize / 2);
 
-    } else if (arr[midpoint] < target) {
-      arr.splice(0, arrSize - midpoint);
-      return binSearch (arr, arr.length, target);
-      
-    } else if (arr[midpoint] > target){
-      arr.splice(midpoint, arrSize - midpoint);
-      return binSearch (arr, arr.length, target);
-    }
+  if (arr[midpoint] === target) {
+    return true;
+
+  } else if (arr[midpoint] < target) {
+    arr.splice(0, arrSize - midpoint);
+    return binSearch(arr, arr.length, target);
+
+  } else if (arr[midpoint] > target) {
+    arr.splice(midpoint, arrSize - midpoint);
+    return binSearch(arr, arr.length, target);
+  }
 }
 
-// 1 2 3 4 
+// returns index
+function binarySearchRecursive(array, target, low, high) {
+  if (high < low) {
+    return -1;
+  }
+  let mid = Math.floor((low + high) / 2);
+  if (array[mid] > target) {
+    return binarySearchRecursive(array, target, low, mid - 1);
+  }
+  if (array[mid] < target) {
+    return binarySearchRecursive(array, target, mid + 1, high);
+  }
+  
+  return mid;
+}
+
