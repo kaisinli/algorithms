@@ -1,4 +1,4 @@
-// BST is a type of binary trees. In BTS, left child nolde is less than its parent node and right child node is greater than parent node.
+// BST is a type of binary trees. In BTS, left child node is less than its parent node and right child node is greater than parent node.
 
 // First, let's create a BST, which is a constructor function:
 

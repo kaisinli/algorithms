@@ -74,20 +74,21 @@ const isValid = (str) => {
 // A similar problem: returning the number of unmatched parentesis
 
 function bracketMatch(text) {
-  var stack = [text[0]];
-  
-  for (var i = 1; i < text.length; i++) {
-    if (text[i] === ')' ) {
-      if(stack[stack.length-1] === '(') {
-          stack.pop();
-      } else {
-          stack.push(text[i])
-      }
+    var stack = [text[0]];
+
+    for (var i = 1; i < text.length; i++) {
+        if (text[i] === ')') {
+            if (stack[stack.length - 1] === '(') {
+                stack.pop();
+            } else {
+                stack.push(text[i])
+            }
+        }
+
+        else if (text[i] === '(') {
+            stack.push(text[i])
+        }
     }
-    
-    else if (text[i] === '(' ) {
-        stack.push(text[i])
-  }
-  
-  return stack.length;
+    return stack.length;
 }
+
