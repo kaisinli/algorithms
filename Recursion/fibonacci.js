@@ -42,3 +42,18 @@ function fib(n){
     if (n === 1) return 1;
     return (fib(n-1)+fib(n-2))
 }
+
+const memoFib = function() {
+	let memo = {};
+	return function fib(n) {
+		let value;
+
+		if (memo[n]) value = memo[n];
+		else {
+			if (n < 2) value = n;
+			else value = fib(n - 1) + fib(n - 2);
+			memo[n] = value;
+		}
+		return value;
+	};
+}()

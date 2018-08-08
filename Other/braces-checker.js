@@ -22,13 +22,13 @@ const bracesChecker = (arr) => {
                 const mostRecentOpen = opensStack.pop();
                 const correspondingClose = opens[mostRecentOpen];
                 if (str[i] !== correspondingClose) {
-                    console.log(0);
+                    return false
                     break;
                 }
             }
             if (i === str.length - 1) {
-                if (opensStack.length === 0) console.log(1);
-                else console.log(0);
+                if (opensStack.length === 0) return true;
+                else return false;
             }
         }
     })
