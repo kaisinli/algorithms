@@ -20,12 +20,15 @@ var inorderTraversal = function (root) {
 
     while (curr !== null || stack.length > 0) {
         while (curr !== null) {
-            stack.push(curr.val);
+            stack.push(curr);
             curr = curr.left
         }
-
-
+        curr = stack.pop();
+        ans.push(curr.val);
+        curr = curr.right;
     }
+
+    return ans;
 }
 
 
