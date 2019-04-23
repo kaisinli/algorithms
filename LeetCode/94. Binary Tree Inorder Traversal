@@ -31,4 +31,9 @@ var inorderTraversal = function (root) {
     return ans;
 }
 
+/**
+ * Thought process, go left until there's no more left. Then pop that and check 
+ * to see if it has any right child. If no, look at its parent to see if it has 
+ * any right child.
+
 
