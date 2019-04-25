@@ -8,7 +8,7 @@ function findMiddle(node) {
     }
     return slow;
 }
-
+ 
 /**
  * fast is traveling twice as fast 
  * if the linked list has an even number of node, the midpoint will be the first element of the second half.
