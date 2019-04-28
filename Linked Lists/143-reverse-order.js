@@ -12,9 +12,7 @@ var reorderList = function (head) {
         l2 = slow.next;
     slow.next = null;
 
-    l2 = reverseList(l2);
-
-    return listInterleave(l1, l2)
+    
 };
 
 const reverseList = function (head) {
